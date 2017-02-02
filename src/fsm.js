@@ -24,7 +24,11 @@ class FSM {
      * Goes to specified state.
      * @param state
      */
-    changeState(state) {}
+    changeState(state) {
+        this.state = state;
+
+        return this.state;
+    }
 
     /**
      * Changes state according to event transition rules.
