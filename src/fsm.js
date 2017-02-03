@@ -37,7 +37,9 @@ class FSM {
      * Changes state according to event transition rules.
      * @param event
      */
-    trigger(event) {}
+    trigger(event) {
+        this.state = this.states[this.state].transitions[event];
+    }
 
     /**
      * Resets FSM state to initial.
