@@ -10,6 +10,7 @@ class FSM {
 
         this.config = config;
         this.state = config.initial;
+        this.states = config.states;
     }
 
     /**
@@ -25,9 +26,11 @@ class FSM {
      * @param state
      */
     changeState(state) {
-        this.state = state;
-
-        return this.state;
+        if (state in this.states) {
+            this.state = state;
+        } else {
+            throw new Errow("State doesn't exist");
+        }
     }
 
     /**
