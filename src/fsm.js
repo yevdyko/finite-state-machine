@@ -39,7 +39,7 @@ class FSM {
      */
     trigger(event) {
         let newState = this.states[this.state].transitions[event];
-        
+
         if (newState) {
             this.state = newState;
         } else {
@@ -50,7 +50,9 @@ class FSM {
     /**
      * Resets FSM state to initial.
      */
-    reset() {}
+    reset() {
+        this.state = this.config.initial;
+    }
 
     /**
      * Returns an array of states for which there are specified event transition rules.
