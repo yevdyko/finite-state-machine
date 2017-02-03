@@ -38,7 +38,13 @@ class FSM {
      * @param event
      */
     trigger(event) {
-        this.state = this.states[this.state].transitions[event];
+        let newState = this.states[this.state].transitions[event];
+        
+        if (newState) {
+            this.state = newState;
+        } else {
+            throw new Error("Event in current state doesn't exist");
+        }
     }
 
     /**
