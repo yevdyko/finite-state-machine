@@ -60,7 +60,15 @@ class FSM {
      * @param event
      * @returns {Array}
      */
-    getStates(event) {}
+    getStates(event) {
+        let statesArray = [];
+
+        for (let state in this.states) {
+            statesArray.push(state);
+        }
+
+        return statesArray;
+    }
 
     /**
      * Goes back to previous state.
