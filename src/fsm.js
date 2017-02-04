@@ -90,9 +90,9 @@ class FSM {
      */
     undo() {
         if (this.history.length > 1) {
-            this.history.pop();
+            this.previousState = this.history.pop();
             this.state = this.history[this.history.length - 1];
-        
+            
             return true;
         } else {
             return false;
@@ -104,7 +104,11 @@ class FSM {
      * Returns false if redo is not available.
      * @returns {Boolean}
      */
-    redo() {}
+    redo() {
+        if (!this.previousState) {
+            return false;
+        }
+    }
 
     /**
      * Clears transition history
