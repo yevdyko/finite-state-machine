@@ -29,6 +29,7 @@ class FSM {
     changeState(state) {
         if (state in this.states) {
             this.state = state;
+            this.history.push(this.state);
         } else {
             throw new Errow("State doesn't exist");
         }
