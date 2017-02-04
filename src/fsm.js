@@ -63,8 +63,10 @@ class FSM {
     getStates(event) {
         let statesArray = [];
 
-        for (let state in this.states) {
-            statesArray.push(state);
+        if (!event) {            
+            for (let state in this.states) {
+                statesArray.push(state);
+            }
         }
 
         return statesArray;
