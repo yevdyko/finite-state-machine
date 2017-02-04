@@ -11,6 +11,7 @@ class FSM {
         this.config = config;
         this.state = config.initial;
         this.states = config.states;
+        this.history = [];
     }
 
     /**
@@ -85,7 +86,11 @@ class FSM {
      * Returns false if undo is not available.
      * @returns {Boolean}
      */
-    undo() {}
+    undo() {
+        if (this.history.length === 0) {
+            return false;
+        }
+    }
 
     /**
      * Goes redo to state.
