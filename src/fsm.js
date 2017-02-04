@@ -92,6 +92,8 @@ class FSM {
         if (this.history.length > 1) {
             this.history.pop();
             this.state = this.history[this.history.length - 1];
+        
+            return true;
         } else {
             return false;
         }
