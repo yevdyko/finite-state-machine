@@ -63,7 +63,15 @@ class FSM {
     getStates(event) {
         let statesArray = [];
 
-        if (!event) {            
+        if (event) {            
+            for (let state in this.states) {
+                let newState = this.states[state].transitions[event];
+                
+                if (newState) {
+                    statesArray.push(state);
+                }
+            }
+        } else {
             for (let state in this.states) {
                 statesArray.push(state);
             }
