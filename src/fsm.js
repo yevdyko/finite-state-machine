@@ -11,7 +11,7 @@ class FSM {
         this.config = config;
         this.state = config.initial;
         this.states = config.states;
-        this.history = [];
+        this.history = [this.state];
     }
 
     /**
@@ -43,6 +43,7 @@ class FSM {
 
         if (newState) {
             this.state = newState;
+            this.history.push(this.state);
         } else {
             throw new Error("Event in current state doesn't exist");
         }
@@ -87,7 +88,10 @@ class FSM {
      * @returns {Boolean}
      */
     undo() {
-        if (this.history.length === 0) {
+        if (this.history.length > 1) {
+            this.history.pop();
+            this.state = this.history[this.history.length - 1];
+        } else {
             return false;
         }
     }
