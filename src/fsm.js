@@ -118,7 +118,9 @@ class FSM {
     /**
      * Clears transition history
      */
-    clearHistory() {}
+    clearHistory() {
+        this.history = [this.config.initial];
+    }
 }
 
 module.exports = FSM;
