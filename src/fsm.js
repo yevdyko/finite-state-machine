@@ -108,6 +108,8 @@ class FSM {
         if (this.previousState) {
             this.state = this.previousState;
             this.history.push(this.state);
+
+            return true;
         } else {
             return false;
         }
