@@ -105,7 +105,10 @@ class FSM {
      * @returns {Boolean}
      */
     redo() {
-        if (!this.previousState) {
+        if (this.previousState) {
+            this.state = this.previousState;
+            this.history.push(this.state);
+        } else {
             return false;
         }
     }
