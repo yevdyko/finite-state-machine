@@ -46,6 +46,7 @@ class FSM {
         if (newState) {
             this.state = newState;
             this.history.push(this.state);
+            this.previousState = null;
         } else {
             throw new Error("Event in current state doesn't exist");
         }
