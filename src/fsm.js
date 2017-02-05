@@ -5,7 +5,7 @@ class FSM {
      */
     constructor(config) {
         if (!config) {
-            throw new Error();
+            throw new Error("Config isn't defined");
         }
 
         this.config = config;
